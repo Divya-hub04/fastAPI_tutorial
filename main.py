@@ -1,7 +1,7 @@
-from fastapi import FastAPI, Query
+from fastapi import FastAPI, Query, Body
 from enum import Enum
 from typing import Optional, List
-
+from schemas.item import Item
 app = FastAPI()
 
 @app.get("/")
@@ -47,3 +47,7 @@ async def read_item_details(item_id: int, q: Optional[str] = None):
 @app.get("/products/")
 async def read_products(tags: Optional[List[str]] = Query(None)):
     return {"tags": tags}
+
+@app.post("/items/")
+async def create_item(item: Item):
+    return item

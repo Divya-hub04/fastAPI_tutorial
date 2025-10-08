@@ -18,11 +18,10 @@
     }
   },
   
-  // Use 'postCreateCommand' to run commands after the container is created.
+  // Create virtual environment and install dependencies.
   "postCreateCommand": "python -m venv venv && source venv/bin/activate && pip install fastapi uvicorn",
-  
-  // Use 'postAttachCommand' to run commands after the workspace attaches to the container.
-  "postAttachCommand": "source venv/bin/activate && uvicorn main:app --reload --host 0.0.0.0 --port 8000",
+  // This command starts the server when the container starts.
+  // It ensures the virtual environment is activated before the server command runs.
   
   // Forward the port where the Uvicorn server is running.
   "forwardPorts": [8000],
@@ -33,5 +32,6 @@
       "label": "FastAPI App",
       "onAutoForward": "openBrowser"
     }
-  }
+  },
+  "postStartCommand": "source venv/bin/activate && uvicorn main:app --reload --host 0.0.0.0 --port 8000"
 }

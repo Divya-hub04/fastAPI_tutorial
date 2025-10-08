@@ -3,7 +3,8 @@
   "image": "mcr.microsoft.com/devcontainers/python:3.11", // Adjust Python version as needed
   
   "features": {
-    "ghcr.io/devcontainers/features/python:1": {}
+    "ghcr.io/devcontainers/features/python:1": {},
+    "ghcr.io/devcontainers/features/git-lfs:1": {}
   },
   
   // Configure tool-specific properties.

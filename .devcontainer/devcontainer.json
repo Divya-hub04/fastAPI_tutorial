@@ -19,7 +19,7 @@
   },
   
   // Create virtual environment and install dependencies.
-  "postCreateCommand": "python -m venv venv && source venv/bin/activate && pip install fastapi uvicorn",
+  "postCreateCommand": "python -m venv .venv && source .venv/bin/activate && pip install fastapi uvicorn",
   // This command starts the server when the container starts.
   // It ensures the virtual environment is activated before the server command runs.
   
@@ -33,5 +33,5 @@
       "onAutoForward": "openBrowser"
     }
   },
-  "postStartCommand": "source venv/bin/activate && uvicorn main:app --reload --host 0.0.0.0 --port 8000"
+  "postStartCommand": "source .venv/bin/activate && uvicorn main:app --reload --host 0.0.0.0 --port 8000"
 }

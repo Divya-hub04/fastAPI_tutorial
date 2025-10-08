@@ -34,5 +34,5 @@
       "onAutoForward": "openBrowser"
     }
   },
-  "postStartCommand": ".venv/bin/uvicorn main:app --reload --host 0.0.0.0 --port 8000"
+  "postStartCommand": "source .venv/bin/uvicorn main:app --reload --host 0.0.0.0 --port 8000"
 }
